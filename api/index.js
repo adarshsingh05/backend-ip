@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: 'https://frontend-ip-five.vercel.app/', // Replace with your frontend URL
+    origin: 'https://frontend-ip-8pew.vercel.app/', // Replace with your frontend URL
   }));
   // app.use(cors()); // Allow requests from any origin
 
