@@ -2,9 +2,22 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// List of allowed frontend URLs
+const allowedOrigins = [
+  "https://frontend-ip-8pew.vercel.app",
+  "http://localhost:3000",
+  "https://yet-another-url.com"
+];
+
 app.use(
   cors({
-    origin: "https://frontend-ip-8pew.vercel.app", // Replace with your deployed frontend URL
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error("Not allowed by CORS")); // Reject the request
+      }
+    },
     methods: "GET,POST", // Restrict to allowed methods
     credentials: true, // Allow cookies or credentials if required
   })
