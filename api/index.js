@@ -4,13 +4,7 @@ const app = express();
 
 const cors = require("cors");
 
-app.use(
-  cors({
-    origin: "https://frontend-ip-8pew.vercel.app", // Replace with your deployed frontend URL
-    methods: "GET,POST", // Restrict to allowed methods
-    credentials: true, // Allow cookies or credentials if required
-  })
-);
+
 
 
   // app.use(cors()); // Allow requests from any origin
